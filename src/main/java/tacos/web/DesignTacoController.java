@@ -55,14 +55,14 @@ public class DesignTacoController {
 //end::showDesignForm[]
 
 
-    //tag::processDesign[]
-    @PostMapping
-    public String processDesign(Design design) {
-        // Save the taco design...
-        // We'll do this in chapter 3
-        log.info("Processing design: " + design);
-        return "redirect:/orders/current";
-    }
+//    tag::processDesign[]
+//    @PostMapping
+//    public String processDesign(Design design) {
+//        // Save the taco design...
+//        // We'll do this in chapter 3
+//        log.info("Processing design: " + design);
+//        return "redirect:/orders/current";
+//    }
 //end::processDesign[]
 
 

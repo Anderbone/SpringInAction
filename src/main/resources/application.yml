@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: sa
+    password: sa
+    url: jdbc:h2:file:~/test
+    driver-class-name: org.h2.Driver
+    schema:
+      - classpath:schema.sql
+      - classpath:data.sql
+    initialization-mode: always

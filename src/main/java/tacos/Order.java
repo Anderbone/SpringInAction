@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 public class Order {
     private Long id;
-    private Date createAt;
+    private Date placedAt;
     @NotBlank(message = "Name is required")
     private String name;
     @NotBlank(message = "Street is required")

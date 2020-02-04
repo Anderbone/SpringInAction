@@ -46,9 +46,10 @@ public class DesignTacoController {
     //tag::bothRepoCtor[]
     @Autowired
     public DesignTacoController(
-            IngredientRepository ingredientRepo) {
+            IngredientRepository ingredientRepo,
+            TacoRepository designRepo) {
         this.ingredientRepo = ingredientRepo;
-//        this.designRepo = designRepo;
+        this.designRepo = designRepo;
     }
 
     //end::bothRepoCtor[]
@@ -92,8 +93,8 @@ public class DesignTacoController {
             return "design";
         }
 
-//        Taco saved = designRepo.save(design);
-//        order.addDesign(saved);
+        Taco saved = designRepo.save(design);
+        order.addDesign(saved);
 
         return "redirect:/orders/current";
     }

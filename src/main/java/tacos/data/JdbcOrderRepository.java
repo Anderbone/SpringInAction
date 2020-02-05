@@ -47,9 +47,22 @@ public class JdbcOrderRepository implements OrderRepository {
 
     private long saveOrderDetails(Order order) {
         @SuppressWarnings("unchecked")
-        Map<String, Object> values =
-                objectMapper.convertValue(order, Map.class);
-        values.put("placedAt", order.getPlacedAt());
+        // convert an object to a Map
+//        Map<String, Object> values =
+//                objectMapper.convertValue(order, Map.class);
+//        values.put("placedAt", order.getPlacedAt());
+
+        Map<String, Object> values = new HashMap<>();
+        values.put("ID", order.getId());
+        values.put("PLACEDAT", order.getPlacedAt());
+        values.put("DELIVERYNAME", order.getName());
+        values.put("DELIVERYSTREET", order.getStreet());
+        values.put("DELIVERYCITY", order.getCity());
+        values.put("DELIVERYSTATE", order.getState());
+        values.put("DELIVERYZIP", order.getZip());
+        values.put("CCNUMBER", order.getCcNumber());
+        values.put("CCEXPIRATION", order.getCcExpiration());
+        values.put("CCCVV", order.getCcCVV());
 
         long orderId =
                 orderInserter

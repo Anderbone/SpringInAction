@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 // tag::classShell[]
 @Controller
 @RequestMapping("/design")
+// unlike Taco in the session, ned the order to be present across multiple requests.
 @SessionAttributes("order")
 public class DesignTacoController {
 
@@ -55,6 +56,7 @@ public class DesignTacoController {
     //end::bothRepoCtor[]
 
     // tag::modelAttributes[]
+    // ensures an Order object will be created in the model
     @ModelAttribute(name = "order")
     public Order order() {
         return new Order();

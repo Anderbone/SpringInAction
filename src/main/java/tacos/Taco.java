@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class Taco {
     private Long id;
-    private Date createAt;
+    private Date createdAt;
     @NotNull
     @Size(min=5, message="Name must be at least 5 characters long")
     private String name;

@@ -4,7 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import tacos.Ingredient.Type;
 import tacos.data.IngredientRepository;
 
@@ -14,6 +13,11 @@ public class TacoCloudApplication {
     public static void main(String[] args) {
         SpringApplication.run(TacoCloudApplication.class, args);
     }
+
+//    @Bean(initMethod = "start", destroyMethod = "stop")
+//    public Server h2Server() throws SQLException {
+//        return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092");
+//    }
 
     @Bean
     public CommandLineRunner dataLoader(IngredientRepository repo) {

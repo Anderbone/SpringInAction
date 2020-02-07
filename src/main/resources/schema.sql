@@ -43,10 +43,10 @@ create table if not exists Taco_Order
 create table if not exists Taco_Order_Tacos
 (
     order_id bigint not null,
-    taco_id  bigint not null
+    tacos_id  bigint not null
 );
 
 alter table Taco_Order_Tacos
     add foreign key (order_id) references Taco_Order (id);
 alter table Taco_Order_Tacos
-    add foreign key (taco_id) references Taco (id);
+    add foreign key (tacos_id) references Taco (id);

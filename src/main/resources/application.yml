@@ -13,8 +13,8 @@ spring:
   datasource:
     username: sa
     password: sa
-    #    url: jdbc:h2:file:~/jpadb
-    url: jdbc:h2:mem:default
+    url: jdbc:h2:~/t2;AUTO_SERVER=TRUE
+#    url: jdbc:h2:mem:default
     driver-class-name: org.h2.Driver
     schema:
       - classpath:schema.sql

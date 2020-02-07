@@ -1,10 +1,22 @@
+#spring:
+#  datasource:
+#    username: sa
+#    password: sa
+#    url: jdbc:h2:file:~/jpadb
+#    driver-class-name: org.h2.Driver
+#    schema:
+#      - classpath:schema.sql
+#      - classpath:data.sql
+#    initialization-mode: always
+
 spring:
   datasource:
     username: sa
     password: sa
-    url: jdbc:h2:file:~/jpadb
+    #    url: jdbc:h2:file:~/jpadb
+    url: jdbc:h2:mem:default
     driver-class-name: org.h2.Driver
     schema:
       - classpath:schema.sql
-      - classpath:data.sql
+    #      - classpath:data.sql
     initialization-mode: always

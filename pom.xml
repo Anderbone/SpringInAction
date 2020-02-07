@@ -8,6 +8,7 @@
         <version>2.2.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>sia</groupId>
     <artifactId>taco-cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -29,7 +30,7 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
 <!--            <scope>runtime</scope>-->
-            <version>1.4.196</version>
+<!--            <version>1.4.196</version>-->
         </dependency>
 
 <!--        <dependency>-->

@@ -17,58 +17,51 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// tag::classShell[]
+//tag::injectingDesignRepository[]
+//tag::injectingIngredientRepository[]
 @Controller
 @RequestMapping("/design")
-// unlike Taco in the session, ned the order to be present across multiple requests.
+//end::injectingIngredientRepository[]
 @SessionAttributes("order")
+//tag::injectingIngredientRepository[]
 public class DesignTacoController {
 
-//end::classShell[]
-
-    //tag::bothRepoProperties[]
-//tag::ingredientRepoProperty[]
     private final IngredientRepository ingredientRepo;
 
-    //end::ingredientRepoProperty[]
-    private TacoRepository designRepo;
+    //end::injectingIngredientRepository[]
+    private TacoRepository tacoRepo;
 
-//end::bothRepoProperties[]
-
+    //end::injectingDesignRepository[]
   /*
-// tag::ingredientRepoOnlyCtor[]
-  @Autowired
+  //tag::injectingIngredientRepository[]
   public DesignTacoController(IngredientRepository ingredientRepo) {
     this.ingredientRepo = ingredientRepo;
   }
-// end::ingredientRepoOnlyCtor[]
+  //end::injectingIngredientRepository[]
    */
+    //tag::injectingDesignRepository[]
 
-    //tag::bothRepoCtor[]
     @Autowired
     public DesignTacoController(
             IngredientRepository ingredientRepo,
-            TacoRepository designRepo) {
+            TacoRepository tacoRepo) {
         this.ingredientRepo = ingredientRepo;
-        this.designRepo = designRepo;
+        this.tacoRepo = tacoRepo;
     }
 
-    //end::bothRepoCtor[]
-
-    // tag::modelAttributes[]
-    // ensures an Order object will be created in the model
     @ModelAttribute(name = "order")
     public Order order() {
         return new Order();
     }
 
-    @ModelAttribute(name = "taco")
-    public Taco taco() {
+    @ModelAttribute(name = "design")
+    public Taco design() {
         return new Taco();
     }
 
-    // end::modelAttributes[]
-    // tag::showDesignForm[]
+    //end::injectingDesignRepository[]
+
+    //tag::injectingIngredientRepository[]
 
     @GetMapping
     public String showDesignForm(Model model) {
@@ -83,24 +76,25 @@ public class DesignTacoController {
 
         return "design";
     }
-//end::showDesignForm[]
+    //end::injectingIngredientRepository[]
 
-    //tag::processDesign[]
+    //tag::injectingDesignRepository[]
     @PostMapping
     public String processDesign(
-            @Valid Taco design, Errors errors,
+            @Valid Taco taco, Errors errors,
             @ModelAttribute Order order) {
 
         if (errors.hasErrors()) {
             return "design";
         }
 
-        Taco saved = designRepo.save(design);
+        Taco saved = tacoRepo.save(taco);
         order.addDesign(saved);
 
         return "redirect:/orders/current";
     }
-    //end::processDesign[]
+
+//end::injectingDesignRepository[]
 
     private List<Ingredient> filterByType(
             List<Ingredient> ingredients, Type type) {
@@ -111,11 +105,17 @@ public class DesignTacoController {
     }
 
   /*
-//tag::classShell[]
-  ...
-//end::classShell[]
-   */
-//tag::classShell[]
+  //tag::injectingDesignRepository[]
+  //tag::injectingIngredientRepository[]
+
+   ...
+  //end::injectingIngredientRepository[]
+  //end::injectingDesignRepository[]
+  */
+
+//tag::injectingDesignRepository[]
+//tag::injectingIngredientRepository[]
 
 }
-//end::classShell[]
+//end::injectingIngredientRepository[]
+//end::injectingDesignRepository[]

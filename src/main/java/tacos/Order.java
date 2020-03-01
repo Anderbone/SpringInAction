@@ -28,6 +28,9 @@ public class Order implements Serializable {
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
 
+    @ManyToOne
+    private User user;
+
     @NotBlank(message="Street is required")
     private String deliveryStreet;
 
